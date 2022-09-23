@@ -10,8 +10,6 @@
 class AMatchAudioGameMode;
 class UWidgetComponent;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDelegateCombo, int32, Combo, int32, Type);
-
 UCLASS()
 class MATCHAUDIO_API ATileActor : public AActor
 {
@@ -43,11 +41,6 @@ public:
 	void ResetAnimationDisappear();
 
 	IMatchTableInterface* MatchTableInterface = nullptr;
-
-	void ShowCombo(int32 Combo);
-
-	UPROPERTY(BlueprintAssignable)
-	FDelegateCombo DelegateCombo;
 
 	void DeferredDestroy();
 protected:

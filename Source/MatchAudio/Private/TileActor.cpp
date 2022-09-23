@@ -161,8 +161,3 @@ void ATileActor::ResetAnimationDisappear()
 		Body->SetRelativeLocation(Location);
 	}
 }
-
-void ATileActor::ShowCombo(int32 Combo)
-{
-	DelegateCombo.Broadcast(Combo, Type);
-}

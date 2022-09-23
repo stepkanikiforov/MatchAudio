@@ -30,7 +30,7 @@ void ADiscographyActor::SpawnTapeBoxes(TArray<FString> Discography)
 {
 	for (int32 i = 0; i < Discography.Num(); ++i)
 	{
-		Border = i * (-50);
+		Border = i * (-32);
 		ATapeActor* SpawnedTapeActor = GetWorld()->SpawnActor<ATapeActor>(SpawnTapeActor, FVector(0, 0, Border), FRotator::ZeroRotator);
 		if (SpawnedTapeActor)
 		{

@@ -3,6 +3,7 @@
 
 #include "MatchTable.h"
 #include "TileActor.h"
+#include "ComboActor.h"
 #include "MatchAudioGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -30,7 +31,6 @@ void AMatchTable::BeginPlay()
 void AMatchTable::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AMatchTable::PlaceTile(int32 NumTrack, int32 Type)
@@ -141,7 +141,15 @@ void AMatchTable::CalculateMatchesForScore(int32 Index, int32 Type, int32 TileSc
 		{
 			GameMode->CurrentScore += MatchesInex.Num() * TileScore;
 		}
-		TileToShow->ShowCombo(MatchesInex.Num());
+
+		AComboActor* SpawnedActor = GetWorld()->SpawnActor<AComboActor>(ComboActor, TileToShow->GetActorLocation(), FRotator::ZeroRotator);
+		if (SpawnedActor)
+		{
+			SpawnedActor->Type = Type;
+			SpawnedActor->Combo = MatchesInex.Num();
+			SpawnedActor->ShowCombo(MatchesInex.Num(), Type);
+		}
+
 		DelegateComboScore.Broadcast(MatchesInex.Num(), Type);
 		DelegateSingleScore.Broadcast(MatchesInex.Num() * TileScore, Type);
 	}

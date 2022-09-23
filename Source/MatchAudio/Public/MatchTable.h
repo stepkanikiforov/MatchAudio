@@ -10,6 +10,7 @@
 
 class ATileActor;
 class AMatchAudioGameMode;
+class AComboActor;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDelegateComboScore, int32, Combo, int32, Type);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDelegateSingleScore, int32, Score, int32, Type);
@@ -38,6 +39,8 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ATileActor> TileActor;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AComboActor> ComboActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 TileWidth = 100;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -53,6 +56,7 @@ public:
 	FDelegateSingleScore DelegateSingleScore;
 	UPROPERTY(BlueprintAssignable)
 	FDelegateTrackDestroy DelegateTrackDestroy;
+
 
 	void PlaceTile(int32 NumTrack, int32 Type);
 
