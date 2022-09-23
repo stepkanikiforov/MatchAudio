@@ -3,6 +3,7 @@
 
 #include "DiscographyActor.h"
 #include "TapeActor.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 ADiscographyActor::ADiscographyActor()
@@ -30,8 +31,8 @@ void ADiscographyActor::SpawnTapeBoxes(TArray<FString> Discography)
 {
 	for (int32 i = 0; i < Discography.Num(); ++i)
 	{
-		Border = i * (-32);
-		ATapeActor* SpawnedTapeActor = GetWorld()->SpawnActor<ATapeActor>(SpawnTapeActor, FVector(0, 0, Border), FRotator::ZeroRotator);
+		Border = i * Gap * -1;
+		ATapeActor* SpawnedTapeActor = GetWorld()->SpawnActor<ATapeActor>(SpawnTapeActor, FVector(0, UKismetMathLibrary::RandomFloatInRange(-5,5), Border), FRotator(0, 0, UKismetMathLibrary::RandomFloatInRange(-2, 2)));
 		if (SpawnedTapeActor)
 		{
 			SpawnedTapeActor->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);

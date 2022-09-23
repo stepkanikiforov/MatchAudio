@@ -26,6 +26,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float Border = 0;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Gap = 35;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
