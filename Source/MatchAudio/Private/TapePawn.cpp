@@ -73,7 +73,6 @@ void ATapePawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	PlayerInputComponent->BindAction("Input", IE_Pressed, this, &ATapePawn::TouchPressed);
-	PlayerInputComponent->BindAction("Input", IE_Released, this, &ATapePawn::TouchReleased);
 }
 
 void ATapePawn::TouchPressed()
@@ -82,11 +81,6 @@ void ATapePawn::TouchPressed()
 	{
 		PlayerController->GetInputTouchState(ETouchIndex::Touch1, StartLocation.X, StartLocation.Y, IsTouch);
 	}
-}
-
-void ATapePawn::TouchReleased()
-{
-
 }
 
 void ATapePawn::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)

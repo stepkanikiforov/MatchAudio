@@ -24,10 +24,16 @@ public:
 	void SpawnTapeBoxes(TArray<FString> Discography);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	float Border = 0;
-
+	float SpawnBorder = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 Gap = 35;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 HorizontalOffset = 5;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 AngleOffset = 1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 TapesOnScreen = 10;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

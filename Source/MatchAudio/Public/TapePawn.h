@@ -41,7 +41,6 @@ public:
 
 private:
 	void TouchPressed();
-	void TouchReleased();
 	bool IsTouch = false;
 	APlayerController* PlayerController = nullptr;
 	FVector2D StartLocation = FVector2D(0, 0);
